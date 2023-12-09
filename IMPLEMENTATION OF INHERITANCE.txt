@@ -1,0 +1,63 @@
+Import java.util.*;
+Class Details
+{
+String name;
+Int Account_no;
+Double balance=0;
+Scanner sc = new Scanner (System.in);
+Void getdata(){
+System.out.println(“enter the name of customer”);
+Name = sc.nextLine();
+System.out.println(“Enter the account number”);
+Account_no = sc.nextInt();
+}
+Void depositeAmount(){
+Double amount;
+System.out.println(“Enter the amount to be deposite”);
+Amount=sc.nextDouble();
+Balance=balance+amount;
+System.out.println(“AMOUNT DEPOSITE SUCCESSFUL !! BALANCE IS”
++balance);
+System.out.println(“=================================================”
+);
+}
+Void withdrawAmount(){
+Double amount;
+System.out.println(“enter the amount you want to withdraw!!”);
+Amount=sc.nextDouble();
+If(balance <= amount)
+{
+System.out.println(“insufficient fund”);
+System.out.println(“transaction decline for insufficient Amount!!”);
+System.out.println(“=============================================”
+);
+}
+Else{
+Balance=balance-amount;
+System.out.println(“Amount is withdraw from the Account:”+amount);
+System.out.print(“Remaing balace in the Account:” +balance);
+System.out.print(“=======================================”);
+}
+}
+Class Bank
+{
+Public static void main(String args[])
+{
+Details d=new Details();
+d.getdata();
+d.depositeAmount();
+d.withdrawAmount();
+}
+}
+Output: -
+Enter the name of customer
+ABC
+Enter the account number
+112021367
+Enter the amount to be deposite
+50000
+AMOUNT DEPOSITE SUCCESSFUL !! BALANCE IS 50000.0
+Enter the amount you want to withdraw!!
+10000
+Amount is withdraw from the Account:10000.0
+Remaing balace in the Account:40000.0======================================

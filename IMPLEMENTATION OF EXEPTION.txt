@@ -1,0 +1,43 @@
+Import java.util.Scanner;
+Public class Program1
+{
+Public static void main(String args[])
+{
+Int num1, num2, div;
+Scanner sc= new Scanner (System.in);
+System.out.println(“Enter value of num1:”);
+Num1 = sc.nextInt();
+System.out.println(“Enter values of num2:”);
+Num2=sc.nextInt();
+Try
+{
+Div=num1/num2;
+If(num2==0)
+{
+Throw new ArithmeticException();
+}
+System.out.println(div);
+}
+Catch(ArithmeticException e)
+{
+System.out.println€;
+}
+System.out.println(“The aray is array[]=[4,5]”);
+Int array[]={4,5};
+Try{
+System.out.println(array[3]);
+}
+Catch(Exception e)
+{
+System.out.println(“The error found is” +e);
+}
+}
+}
+Output: -
+Enter value of num1:
+1
+Enter values of num2:
+4
+0
+The aray is array[]=[4,5]
+The error found isjava.lang.ArrayIndexOutOfBoundsException: Index 3 out of bounds for length 2

@@ -1,0 +1,177 @@
+Import java.util.*;
+Import java.util.Scanner;
+Class Number
+{
+Public static <E> void arr()
+{
+Scanner sc = new Scanner(System.in);
+System.out.print(“Enter size of array::”);
+Int n=sc.nextInt();
+Object[] arr=new Object[n];
+System.out.print(“Enter Array Elements :”);
+For(int i=0; i<n; i++){
+Arr[i] =sc.next();
+}
+System.out.print(“Entered Array is :”);
+For(Object element : arr)
+{
+System.out.printf(“ ‘%s’ “, element);
+}
+System.out.println();
+}
+Public static <T> void Pallindrome(T s)
+{
+String s1=(String)s;
+S1=s1.toLowerCase();
+StringBuffer sb = new StringBuffer(s1);
+String ss = new String(sb.reverse());
+If(Objects.equals(s1,ss))
+System.out.println(s+”is Pallindrome”);
+Else
+System.out.println(s+” is not Pallindrome”);
+}
+Public static <T> void evenodd(T a)
+{
+If((int)a%2==0)
+System.out.println(a+ “ is even Number .”);
+Else
+System.out.println(a+ “ is odd Number .”);
+}
+Public static <T> void prime(T a)
+{
+If((int)a==1)
+System.out.println(a+” is Not Prime Number”);
+Else if((int)a==2)
+System.out.println(a+” is Prime Number”);
+Else if((int)a%2==0 && (int)a>2)
+System.out.println(a+ “ is Not Prime Number”);
+Else{
+Double b=Math.sqrt((int)a)+1;
+Int temp=0;
+For(int i=3;i<b;i=i+2)
+{
+If((int)a%i==0)
+Temp=1;
+}
+If(temp==1)
+System.out.println(a+ “ is Not Prime Number”);
+Else
+System.out.println(a+” is Prime Number”);
+}
+}
+Public static <T> void checkfun(T s) {
+Try{
+Int b = Integer.parseInt((String) s);
+System.out.println(“We can perform Pallindrome , int Array , Check Prime, EvenOdd Function.”);
+}
+Catch( NumberFormatException e)
+{
+System.out.println(“We can perform Pallindrome , String Array.”);}
+}}
+Public class Pallindrome
+{
+Public static void main(String args[])
+String s;
+Scanner sc = new Scanner(System.in);
+Aa:
+While(true) {
+System.out.println(“\n\t==== MENU BAR ====\n\n\t1.String \n\t2.Integer”+ “\n\t3.integer array 
+\n\t4.String Array”+ “\n\t5.Check Function\n\t6.Exit”);
+Int c =sc.nextInt();
+Switch© 
+{
+Case 1:
+System.out.print(“Enter the String :: “);
+S=sc.next();
+Number.Pallindrome(s);
+System.out.println(“======================================================”);
+Break;
+Case 2:
+System.out.print(“Enter the Integer :: “);
+S =sc.next();
+Number.Pallindrome(s);
+Number.evenodd(Integer.parseInt(s));
+Number.prime(Integer.parseInt(s));
+System.out.println(“======================================================”);
+Break;
+Case 3:
+Case 4:
+Number.arr();
+System.out.println(“======================================================”);
+Break;
+Case 5:
+System.out.print(“Enter the String :: “);
+String ss =sc.next();
+Number.checkfun(ss);
+System.out.println(“======================================================”);
+Break;
+Case 6:
+System.out.println(“======================================================”);
+Break aa;
+Default:
+System.out.println(“Invalid Input !!!”);
+System.out.println(“======================================================”);
+}}}}
+Output:-
+==== MENU BAR ====
+1.String
+2.Integer
+3.integer array
+4.String Array
+5.Check Function
+6.Exit
+1
+Enter the String :: 12
+12 is not Pallindrome
+==== MENU BAR ====
+1.String
+2.Integer
+3.integer array
+4.String Array
+5.Check Function
+6.Exit
+2
+Enter the Integer :: 2
+2 is Pallindrome
+2 is even Number .
+2 is Prime Number
+==== MENU BAR ====
+1.String
+2.Integer
+3.integer array
+4.String Array
+5.Check Function
+6.Exit
+3
+Enter size of array::4
+Enter Array Elements :4622
+4 6 2 8
+Entered Array is : ‘4622’ ‘4’ ‘6’ ‘2’ 
+==== MENU BAR ====
+1.String
+2.Integer
+3.integer array
+4.String Array
+5.Check Function
+6.Exit
+4
+Enter size of array::4
+Enter Array Elements :xd fhght hkgv ftgfjhg
+Entered Array is : ‘xd’ ‘fhght’ ‘hkgv’ ‘ftgfjhg’ 
+==== MENU BAR ====
+1.String
+2.Integer
+3.integer array
+4.String Array
+5.Check Function
+6.Exit
+5
+Enter the String :: 369
+We can perform Pallindrome , int Array , Check Prime, EvenOdd Function.
+==== MENU BAR ====
+1.String
+2.Integer
+3.integer array
+4.String Array
+5.Check Function
+6.Exit

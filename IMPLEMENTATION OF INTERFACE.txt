@@ -1,0 +1,80 @@
+Import java.util.*;
+Interface Vehicle
+{
+Void gear_change();
+Void speed_up();
+Void apply_breaks();
+}
+Class Bicycle implements Vehicle
+{
+Public void gear_change()
+{
+System.out.println(“Fifth gear:”);
+}
+Public void speed_up()
+{
+System.out.println(“TO change the acceleter:”);
+}
+Public void apply_breaks()
+{
+System.out.println(“You can apply the break for the stop:”);
+}
+}
+Class Bike implements Vehicle
+{
+Public void gear_change()
+{
+System.out.println(“fifth gear:”);
+}
+Public void speed_up()
+{
+System.out.println(“To change the acceleter:”);
+}
+Public void apply_breaks()
+{
+System.out.println(“You can apply the breaks:”);
+}
+}
+Class Car implements Vehicle
+{
+Public void gear_change()
+{
+System.out.println(“Fourth gear:”);
+}
+Public void speed_up()
+{
+System.out.println(“To change the acceleter:”);
+}
+Public void apply_breaks()
+{
+System.out.println(“You can apply break for the stop the car:”);
+}
+}
+Abstract class Interface implements Vehicle
+{
+Public static void main(String args[])
+{
+Bicycle b = new Bicycle();
+b.gear_change();
+b.speed_up();
+b.apply_breaks();
+Bike a = new Bike();
+a.gear_change();
+a.speed_up();
+a.apply_breaks();
+Car c = new Car();
+c.gear_change();
+c.speed_up();
+c.apply_breaks();
+}
+}
+Output: -
+Fifth gear:
+TO change the acceleter:
+You can apply the break for the stop:
+Fifth gear:
+To change the acceleter:
+You can apply the breaks:
+Fourth gear:
+To change the acceleter:
+You can apply break for the stop the car

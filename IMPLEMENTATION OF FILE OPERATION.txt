@@ -1,0 +1,344 @@
+Import java.io.*; 
+Import java.util.*;
+Class Database {
+Static BufferedReader br = new BufferedReader(new
+InputStreamReader(System.in));
+Public void addRecords() throws IOException {
+PrintWriter pw = new PrintWriter(new BufferedWriter(new
+FileWriter(“sample.txt”,true)));
+String studentname, address,s;
+Int studentid, rollno, Class;
+Float marks;
+Boolean addMore = false;
+Do {
+System.out.print(“\nEnter Student Name: “);
+Studentname = br.readLine();
+System.out.print(“Student Id: “);
+Studentid = Integer.parseInt(br.readLine());
+System.out.print(“Roll no: “);
+Rollno = Integer.parseInt(br.readLine());
+System.out.print(“Address: “);
+Address = br.readLine();
+System.out.print(“Class: “);
+Class = Integer.parseInt(br.readLine());
+System.out.print(“Marks : “); 
+Marks = Float.parseFloat(br.readLine());
+Pw.println(studentname+” “+studentid+” “+rollno+” “+address+”“+Class+” “+marks);
+System.out.print(“\nRecords added successfully !\n\nDo you want To add more records ? (y/n) : “);
+S = br.readLine();
+If(s.equalsIgnoreCase(“y”)){
+addMore = true;
+System.out.println();
+} 
+Else
+addMore = false;
+}
+While(addMore);
+Pw.close();
+}
+Public void readRecords() throws IOException {
+Try {
+BufferedReader file = newBufferedReader(new FileReader(“sample.txt”));
+String name;
+Int i=1;
+While((name = file.readLine()) != null) {
+System.out.println(name);
+System.out.println(“”);
+} file.close(); 
+}
+Catch(FileNotFoundException e){
+System.out.println(“\nERROR : File not Found !!!”);
+}
+}
+Public void searchRecords() throws IOException {
+Try {
+BufferedReader file = new
+BufferedReader(new FileReader(“sample.txt”));
+String name;
+Int flag=0;
+Scanner sc=new Scanner(System.in);
+System.out.print(“Enter an id of the student you want to search: “);
+String searchname=sc.next();
+While((name = file.readLine()) != null) {
+String[] line = name.split(“ “);
+If(searchname.equalsIgnoreCase(line[1])){
+System.out.println(“Record found”);
+System.out.println(name);
+System.out.println(“”);
+Flag=1;
+Break;
+}}
+If(flag==0)
+System.out.println(“Record not found”);
+File.close();
+} 
+Catch(FileNotFoundException e) {
+System.out.println(“\nERROR : File not Found !!!”);
+}
+}
+Public void deleteRecords() throws IOException {
+Try {
+BufferedReader file1 = new BufferedReader(new
+FileReader(“sample.txt”));
+PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(“new.txt”,true)));
+String name;
+Int flag=0;
+Scanner sc=new Scanner(System.in);
+System.out.print(“Enter the name of the student you want to Delete: “);
+String searchname=sc.next();
+While((name = file1.readLine()) != null) {
+String[] line = name.split(“ “);
+If(!searchname.equalsIgnoreCase(line[0])){
+Pw.println(name); 
+Flag=0; 
+}
+Else{
+System.out.println(“Record found”);
+Flag=1;
+}
+} file1.close();
+Pw.close(); 
+File delName = new File(“sample.txt”);
+File oldName = new File(“new.txt”);
+File newName = new File(“sample.txt”);
+If(delName.delete())
+System.out.println(“deleted successfully”);
+Else 
+System.out.println(“Error”);
+If (oldName.renameTo(newName))
+System.out.println(“Renamed successfully”);
+Else 
+System.out.println(“Error”);
+}
+Catch(FileNotFoundException e) {
+System.out.println(“\nERROR : File not Found !!!”);
+} 
+}
+Public void updateRecords() throws IOException {
+Try {
+BufferedReader file1 = new BufferedReader(new
+FileReader(“sample.txt”));
+PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(“new.txt”,true)));
+String name;
+Int flag=0;
+Scanner sc=new Scanner(System.in);
+System.out.print(“Enter the name of the student you want to Update: “);
+String searchname=sc.next();
+While((name = file1.readLine()) != null) {
+String[] line = name.split(“ “);
+If(!searchname.equalsIgnoreCase(line[0])){
+Pw.println(name); 
+Flag=0; 
+} 
+Else
+{
+System.out.println(“Record found”);
+System.out.print(“Enter updated marks: “);
+String up_mark=sc.next();
+Pw.println(line[0]+” “+line[1]+” “+line[2]+” “+line[3]+”“+line[4]+” “+up_mark);
+Flag=1; 
+} 
+}
+File1.close();
+Pw.close();
+File delName = new File(“sample.txt”);
+File oldName = new File(“new.txt”);
+File newName = new File(“sample.txt”);
+If(delName.delete())
+System.out.println(“record updated successfully”);
+Else 
+System.out.println(“Error”);
+If (oldName.renameTo(newName))
+System.out.println(“Renamed successfully”);
+Else 
+System.out.println(“Error”);
+Catch(FileNotFoundException e) {
+System.out.println(“\nERROR : File not Found !!!”);
+} 
+}
+Public void clear(String filename) throws IOException {
+PrintWriter pw = new PrintWriter(new BufferedWriter(newFileWriter(filename)));
+Pw.close();
+System.out.println(“\nAll Records cleared successfully !”);
+}
+}
+Public class Main{
+Public static void main(String args[]) throws IOException {
+Database f = new Database();
+Scanner sc =new Scanner(System.in);
+System.out.println(“”);
+While(true) {
+System.out.print(“1. Add Records\n2. Display Records\n3. Clear All Records\n4. Search Records”
++ “\n5. Delete Records\n6. Update Records \n7. Exit\n\nEnter 
+Your choice : “);
+Int choice = sc.nextInt();
+System.out.println(“”);
+Switch(choice) {
+Case 1:
+f.addRecords();
+System.out.println(“\n====================================================\n”);
+Break;
+Case 2:
+f.readRecords();
+System.out.println(“\n====================================================\n”);
+Break;
+Case 3:
+f.clear(“sample.txt”);
+System.out.println(“\n====================================================\n”);
+Break;
+Case 4:
+f.searchRecords();
+System.out.println(“\n====================================================\n”);
+Break;
+Case 5:
+f.deleteRecords();
+System.out.println(“\n====================================================\n”);
+Break;
+Case 6:
+f.updateRecords();
+System.out.println(“\n====================================================\n”);
+Break;
+Case 7:
+System.out.println(“\n====================================================\n”);
+System.exit(0);
+Break;
+Default:
+System.out.println(“\nInvalid Choice !”);
+System.out.println(“\n====================================================\n”);
+Break;
+}}}}
+Output: -
+1. Add Records
+2. Display Records
+3. Clear All Records
+4. Search Records
+5. Delete Records
+6. Update Records
+7. Exit
+ Enter your choice : 3
+All Records cleared successfully !
+1. Add Records
+2. Display Records
+3. Clear All Records
+4. Search Records
+5. Delete Records
+6. Update Records 
+7. Exit
+Enter your choice : 1
+Enter Student Name: ketan
+Student Id: 1
+Roll no: 70
+Address: Nashik
+Class: 10
+Marks : 489
+Records added successfully !
+Do you want to add more records ? (y/n) : y
+Enter Student Name: sarang
+Student Id: 2
+Roll no: 51
+Address: Naahik
+Class: 10
+Marks : 479
+Records added successfully !
+Do you want to add more records ? (y/n) : y
+Enter Student Name: yashraj
+ Student Id: 67
+ Roll no: 67
+Address: Pune
+Class: 9
+Marks : 467
+Records added successfully !
+Do you want to add more records ? (y/n) : y
+Enter Student Name: Hemant
+Student Id: 76
+Roll no: 76
+Address: Dhule
+Class: 10
+Marks : 495
+Records added successfully !
+Do you want to add more records ? (y/n) : y
+Enter Student Name: Harshvardhan
+Student Id:40
+Roll no: 40
+Address: Sangali
+Class: 11
+Marks : 480
+Records added successfully !
+Do you want to add more records ? (y/n) : n
+1. Add Records
+2. Display Records
+3. Clear All Records
+4. Search Records
+5. Delete Records
+6. Update Records 
+7. Exit
+Enter your choice : 2
+Ketan 70 70 Nashik 10 489.0
+Sarang 54 54 Nashik 10 479.0
+Yashraj 67 67 Pune 9 467.0
+Hemant 76 76 Dhule 10 495.0
+Harshvardhan 40 40 Sangalu 11 480.0
+1. Add Records
+2. Display Records
+3. Clear All Records
+4. Search Records
+5. Delete Records
+6. Update Records 
+7. Exit
+Enter your choice : 4
+Enter an id of the student you want to search: 70
+Record found
+Ketan 70 70 Nashik 10 489.0
+1. Add Records
+2. Display Records
+3. Clear All Records
+4. Search Records
+5. Delete Records
+6. Update Records 
+7. Exit
+Enter your choice : 4
+Enter an id of the student you want to search: 66
+Record not found
+1. Add Records
+2. Display Records
+3. Clear All Records
+4. Search Records
+5. Delete Records
+6. Update Records 
+7. Exit
+Enter your choice : 5
+Enter the name of the student you want to delete: om
+Record found
+Deleted successfully
+Renamed successfully
+1. Add Records
+2. Display Records
+3. Clear All Records
+4. Search Records
+5. Delete Records
+6. Update Records 
+7. Exit
+Enter your choice : 6
+Enter the name of the student you want to update: Atul
+Record found
+Enter updated marks: 500
+Record updated successfully
+Renamed successfully
+1. Add Records
+2. Display Records
+3. Clear All Records
+4. Search Records
+5. Delete Records
+6. Update Records 
+7. Exit
+Enter your choice : 3
+All Records cleared successfully !
+1. Add Records
+2. Display Records
+3. Clear All Records
+4. Search Records
+5. Delete Records
+6. Update Records 
+7. Exit
+Enter your choice : 7
+===================================================
